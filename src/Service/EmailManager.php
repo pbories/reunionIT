@@ -3,8 +3,7 @@
 namespace App\Service;
 
 use Swift_Mailer;
-use Symfony\Bundle\TwigBundle\TwigEngine;
-
+use Symfony\Component\Templating\EngineInterface;
 
 class EmailManager
 {
@@ -14,7 +13,7 @@ class EmailManager
      * EmailManager constructor.
      * @param $twig
      */
-    public function __construct(TwigEngine $twig)
+    public function __construct(EngineInterface $twig)
     {
         $this->twig = $twig;
     }
@@ -26,7 +25,6 @@ class EmailManager
      * @param $to
      * @param $view
      * @param $options
-     * @throws \Twig\Error\Error
      */
     public function sendEmail(Swift_Mailer $mailer, $object, $to, $view, $options)
     {

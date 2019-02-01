@@ -1,0 +1,70 @@
+body {
+    color: #c3c3c3;
+}
+
+.jumbotron {
+    margin-top: 80px !important;
+    background-color: #0736429c;
+}
+
+.table-active {
+    color: #839496;
+}
+
+.last-column {
+    min-width: 75px;
+}
+
+input {
+    margin-bottom: 1.5rem;
+}
+
+.close {
+    opacity: 1;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 12rem;
+    background-position: center;
+    /* Make the background image cover the area of the <div>, and clip the excess */
+    background-size: cover;
+}
+.alert-danger {
+    background: #CB4B16 linear-gradient(180deg, #d36639, #CB4B16) repeat-x;
+}
+.badge-danger {
+    color: #fff;
+    background-color: #CB4B16;
+}
+.reunionit-addflash {
+    color: #2AA198;
+    border-color: #2AA198;
+    width: 100%;
+    border-style: solid;
+    border-width: 2px;
+    text-align: center;
+    border-radius: inherit;
+    font-weight: bold;
+}
+.fc-scroller {
+    height: initial !important;
+    overflow: initial !important;
+}
+@media (min-width: 576px) {
+    .jumbotron {
+        padding: 2rem 2rem;
+    }
+}
+
+.dropify-wrapper input {
+    background-color: #479cd9 !important;
+}
+
+.form-error-message {
+    color: red;
+}
