@@ -1,15 +1,7 @@
-Objectif :
+RéunionIT v.1
+par P.Bories et R.Grassian
 
--Réaliser un projet de qualité, testé et documenté à présenter sur une soutenance.
--Proposer une couverture unitaire et fonctionnelle à la réalisation.
--Créer un diagrammme UML afin de visualiser les modèles de votre application.
+Interface responsive permettant à des salariés de s'organiser pour réserver des salles de réunion.
 
-Réalisation :
-
-Proposer une interface élégante et originale permettant à des salariés de s'organiser pour réserver des salles de réunion.
-
-Note :
-
-Attention à la complexité de votre application. Ne vous focalisez pas simplement sur le graphisme.
-
-Fixez-vous des objectifs techniques et des scénarios utilisateur. La documentation fonctionnelle de votre projet sera particulièrement importante.
+Système de gestion de ressources développé sous Symfony 4 avec fullCalendar.js.
+PHP - Bootstrap - jQuery
