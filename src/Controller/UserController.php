@@ -239,7 +239,7 @@ class UserController extends AbstractController
             }
         }
         $this->addFlash('notice',
-            'Le compte a été désactivé.');
+            'Le compte a été supprimé.');
 
         return $this->redirectToRoute('user_index');
     }
