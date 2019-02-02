@@ -3,12 +3,25 @@
 namespace App\Service;
 
 use Swift_Mailer;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Templating\EngineInterface;
 
-
-class EmailManager extends AbstractController
+class EmailManager
 {
+    private $twig;
+
     /**
+     * EmailManager constructor.
+     * @param $twig
+     */
+    public function __construct(EngineInterface $twig)
+    {
+        $this->twig = $twig;
+    }
+
+
+    /**
+     * Envoi les mails aux organisateurs et invités aux rénions
+     * en cas d'invitation, de modification ou d'annulation.
      * @param Swift_Mailer $mailer
      * @param $object
      * @param $to
@@ -20,9 +33,7 @@ class EmailManager extends AbstractController
         $message = (new \Swift_Message($object))
             ->setFrom('margouillat.reunion.it@gmail.com')
             ->setTo($to)
-            ->setBody(
-                $this->renderView($view, $options), 'text/html');
+            ->setBody($this->twig->render($view, $options), 'text/html');
         $mailer->send($message);
     }
-
 }

@@ -38,8 +38,7 @@
 
 {% for unavailability in user.unavailabilities %}
     {% if date() < unavailability.startDate %}
-        {% set message = 'Des réunions à venir sont organisées par ' ~ user.firstName ~ ' ' ~ user.lastName ~
-            '. Si vous supprimez son compte, ces réunions seront également supprimées.' %}
+        {% set modal_message = 'Au moins une réunion à venir est organisée par ' ~ user.firstName ~ ' ' ~ user.lastName ~ '. Si vous supprimez son compte, ces réunions seront également supprimées.' %}
     {% endif %}
 {% endfor %}
 
@@ -47,7 +46,7 @@
     {{ parent() }}
     <script>
         $('#confirmationMessage').text('{{ modal_message }}');
-        $('.modal-title').text('Supprimer le compte');
+        $('.modal-title').text('Avertissement');
         $('#form').click(function(e) {
             e.preventDefault();
             $('#confirmationModal').modal({});

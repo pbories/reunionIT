@@ -19,10 +19,13 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create('fr_FR');
+
         for($i = 0; $i < 15; $i ++){
+
             $user = new User();
             $firstName = $faker->firstName;
             $lastName = $faker->lastName;
+
             $user->setFirstName($firstName);
             $user->setLastName($lastName);
             $user->setEmail(Transliterator::transliterate($firstName).'.'.Transliterator::transliterate($lastName).'@reunion.it');
@@ -36,6 +39,7 @@ class UserFixtures extends Fixture
 
         $firstName = $faker->firstName;
         $lastName = $faker->lastName;
+
         $user->setFirstName($firstName);
         $user->setLastName($lastName);
         $user->setEmail(Transliterator::transliterate($firstName).'.'.Transliterator::transliterate($lastName).'@reunion.it');

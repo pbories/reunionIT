@@ -24,6 +24,7 @@
         "symfony/security-bundle": "4.2.*",
         "symfony/serializer-pack": "*",
         "symfony/swiftmailer-bundle": "^3.2",
+        "symfony/templating": "4.2.*",
         "symfony/translation": "4.2.*",
         "symfony/twig-bundle": "4.2.*",
         "symfony/validator": "4.2.*",
@@ -39,7 +40,7 @@
         "symfony/phpunit-bridge": "4.2.*",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
-        "symfony/web-server-bundle": "4.2.*",
+        "symfony/web-server-bundle": "4.2.*"
     },
     "config": {
         "preferred-install": {
