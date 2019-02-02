@@ -74,6 +74,12 @@ class FullCalendarListener
                 $bookingEvent->setAllDay(true);
             }
 
+            // On colore différemment les réunions passées
+            if ($unavailability->getEndDate()->format('Y-m-d H:i:s') < date('Y-m-d H:i:s')) {
+                $bookingEvent->setColor('#385573');
+            }
+
+
             // Création du lien vers la réservation sur l'event affiché dans le calendrier.
             $bookingEvent->setUrl(
                 $this->router->generate('unavailability_show', [
