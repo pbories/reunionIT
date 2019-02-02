@@ -92,7 +92,7 @@ class UserController extends AbstractController
             $mailer->send($message);
 
             $this->addFlash('notice',
-                'L\'utilisateur a été créé, un email contenant son mot de passe provisoire lui a été envoyé.');
+                'Le compte a été créé.');
 
             return $this->redirectToRoute('user_index');
         }
@@ -120,7 +120,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * Permet à l'admin de modifier un utilisateur.
+     * Permet à l'admin de modifier le profil d'un utilisateur.
      * @Route("/admin/modifier/utilisateur-{id}.html", name="user_edit", methods={"GET","POST"})
      * @Security("u != null and u.getDeletedAt() == null", statusCode=404,
      *     message="Cet utilisateur n'existe plus ou n'a jamais existé.")
@@ -209,6 +209,7 @@ class UserController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
 
+            // On active le filtre Gedmo/softdeleteable
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->getFilters()->enable('softdeleteable');
 
@@ -228,8 +229,8 @@ class UserController extends AbstractController
             // Dans tous les cas, on le désactive (1ère requête "remove")
             $userManager->removeUserFromDatabase($user);
 
-            if (empty($user->getUnavailabilities()) && empty($unavailabilityRepository->findByGuestAndOrder($user))) {
-                // Si l'utilisateur n'est l'organisateur ou l'invité d'aucune réunion,
+            if (empty($user->getUnavailabilities()) && empty($user->getInvitations())) {
+                // Si l'utilisateur n'est l'organisateur ou l'invité d'aucune réunion à venir,
                 // on le supprime définitivement (2e requête "remove").
                 $userManager->removeUserFromDatabase($user);
             } else {
@@ -244,7 +245,9 @@ class UserController extends AbstractController
     }
 
     /**
+     * Affiche le tableau de bord d'un utilisateur.
      * @Route("/tableau-de-bord.html", name="user_dashboard")
+     * @Security("has_role('ROLE_EMPLOYEE')")
      * @return Response
      */
     public function dashboard()

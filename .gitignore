@@ -17,4 +17,5 @@
 ###< symfony/web-server-bundle ###
 /.idea/
 
+/tests/
 /coverage/
