@@ -20,7 +20,7 @@ class EmailManager
 
 
     /**
-     * Envoi les mails aux organisateurs et invités aux rénions
+     * Envoie des emails aux organisateurs et invités aux rénions
      * en cas d'invitation, de modification ou d'annulation.
      * @param Swift_Mailer $mailer
      * @param $object
