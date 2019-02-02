@@ -19,7 +19,3 @@
 
 /tests/
 /coverage/
-
-/build/
-/phpDocumentor.phar
-/phpDocumentor.phar.pubkey

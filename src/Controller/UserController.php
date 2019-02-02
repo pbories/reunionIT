@@ -230,7 +230,7 @@ class UserController extends AbstractController
             $userManager->removeUserFromDatabase($user);
 
             if (empty($user->getUnavailabilities()) && empty($user->getInvitations())) {
-                // Si l'utilisateur n'est l'organisateur ou l'invité d'aucune réunion à venir,
+                // Si l'utilisateur n'est l'organisateur ou l'invité d'aucune réunion,
                 // on le supprime définitivement (2e requête "remove").
                 $userManager->removeUserFromDatabase($user);
             } else {
