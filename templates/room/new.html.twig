@@ -23,8 +23,10 @@
             {% endfor %}
         </div>
 
-        {{ form_row(form.picture) }}
-
+        <p>
+            {{ form_errors(form.picture) }}
+        </p>
+        {{ form_widget(form.picture) }}
 
         <button class="btn btn-info" style="margin-top: 20px;" data-toggle="tooltip" data-placement="top" title="Enregistrer">
             <i class="fas fa-check"></i>

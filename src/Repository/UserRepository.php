@@ -60,7 +60,7 @@ class UserRepository extends ServiceEntityRepository
             ->orderBy('unavailabilities_count', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
-            ->getOneOrNullResult()[0];
+            ->getOneOrNullResult();
     }
 
     public function findLastMonthMostInvited()
@@ -82,7 +82,7 @@ class UserRepository extends ServiceEntityRepository
             ->orderBy('invitations_count', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
-            ->getOneOrNullResult()[0];
+            ->getOneOrNullResult();
     }
 
     // /**
