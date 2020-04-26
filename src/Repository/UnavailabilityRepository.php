@@ -6,7 +6,7 @@ use App\Entity\Unavailability;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManager;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method Unavailability|null find($id, $lockMode = null, $lockVersion = null)
@@ -16,7 +16,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class UnavailabilityRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Unavailability::class);
     }

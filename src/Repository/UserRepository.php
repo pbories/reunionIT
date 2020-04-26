@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Security;
 
 /**
@@ -18,7 +18,7 @@ class UserRepository extends ServiceEntityRepository
     // Permet d'injecter l'utilisateur courant.
     private $security;
 
-    public function __construct(RegistryInterface $registry,
+    public function __construct(ManagerRegistry $registry,
                                 Security $security)
     {
         parent::__construct($registry, User::class);

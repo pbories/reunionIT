@@ -63,7 +63,7 @@ class RoomController extends AbstractController
             $picture = $room->getPicture();
 
             if (null !== $picture) {
-                $fileName = 'salle-' . $room->getId()
+                $fileName = 'salle-' . uniqid()
                     . '.' . $picture->guessExtension();
 
                 try {
@@ -86,8 +86,6 @@ class RoomController extends AbstractController
                     return $this->redirectToRoute('room_index');
 
                 } catch (LogicException $e) {
-
-                    # Transition non autorisé...
                     $this->addFlash('error',
                         $e->getMessage());
                 }
@@ -163,7 +161,7 @@ class RoomController extends AbstractController
 
             if (null !== $picture) {
 
-                $fileName = 'salle-' . $room->getId()
+                $fileName = 'salle-' . uniqid()
                     . '.' . $picture->guessExtension();
 
                 try {
